@@ -16,13 +16,13 @@ func main() {
 	}
 	defer db.Close()
 
-	rows, err := db.Query("select * from wikibooks")
+	rows, err := db.Query("select title from en")
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer rows.Close()
 	for rows.Next() {
-		var value int
+		var value string
 		rows.Scan(&value)
 		fmt.Printf("value: %d\n", value)
 	}
