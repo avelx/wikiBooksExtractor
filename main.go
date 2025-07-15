@@ -25,7 +25,7 @@ func main() {
 	defer db.Close()
 
 	//, abstract, body_text, body_html
-	rows, err := db.Query("select title, url from en")
+	rows, err := db.Query("select title, url, abstract, body_text, body_html from en")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -33,8 +33,12 @@ func main() {
 	for rows.Next() {
 		var title string
 		var url string
-		rows.Scan(&title, &url)
-		fmt.Printf("Title: %s - Url: %s\n", title, url)
+		var abstract string
+		var body_text string
+		var body_html string
+		rows.Scan(&title, &url, &abstract, &body_text, &body_html)
+		fmt.Printf("Title: %s - Url: %s - Abstract: %s - Body_text: %s - Body_html: %s\n",
+			title, url, abstract, body_text, body_html)
 	}
 
 }
