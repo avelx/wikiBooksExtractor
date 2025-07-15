@@ -31,12 +31,8 @@ func main() {
 	defer rows.Close()
 	for rows.Next() {
 		var mRow = Rows{}
-		rows.Scan(&mRow.title)
-		rows.Scan(&mRow.url)
-		rows.Scan(&mRow.abstract)
-		rows.Scan(&mRow.body_text)
-		rows.Scan(&mRow.body_html)
-		fmt.Printf("Value: %s\n", mRow.title)
+		rows.Scan(&mRow.title, &mRow.url, &mRow.abstract, &mRow.body_text)
+		fmt.Printf("Value: %s\n", mRow)
 	}
 
 }
