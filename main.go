@@ -24,15 +24,17 @@ func main() {
 	}
 	defer db.Close()
 
-	rows, err := db.Query("select title, url, abstract, body_text, body_html from en")
+	//, abstract, body_text, body_html
+	rows, err := db.Query("select title, url from en")
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer rows.Close()
 	for rows.Next() {
-		var mRow = Rows{}
-		rows.Scan(&mRow.title, &mRow.url, &mRow.abstract, &mRow.body_text)
-		fmt.Printf("Value: %s\n", mRow)
+		var title string
+		var url string
+		rows.Scan(&title, &url)
+		fmt.Printf("Title: %s - Url: %s\n", title, url)
 	}
 
 }
