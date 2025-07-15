@@ -3,7 +3,8 @@ package main
 import (
 	"database/sql"
 	"fmt"
-	"log"
+	sqlite3 "github.com/mattn/go-sqlite3"
+	
 )
 
 func main() {
