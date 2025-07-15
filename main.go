@@ -36,7 +36,7 @@ func main() {
 		rows.Scan(&mRow.abstract)
 		rows.Scan(&mRow.body_text)
 		rows.Scan(&mRow.body_html)
-		fmt.Printf("value: %d\n", mRow)
+		fmt.Printf("Value: %s\n", mRow.title)
 	}
 
 }
